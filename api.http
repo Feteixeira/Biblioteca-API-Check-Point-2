@@ -1,0 +1,74 @@
+### Arquivo de testes rápidos (VS Code com extensão "REST Client" ou IntelliJ HTTP Client)
+@base = http://localhost:8080
+
+### Status da conexão com o SQL Server
+GET {{base}}/status/banco
+
+### ---------- AUTORES ----------
+GET {{base}}/autores
+
+###
+GET {{base}}/autores?nome=machado
+
+###
+GET {{base}}/autores/1
+
+###
+POST {{base}}/autores
+Content-Type: application/json
+
+{
+  "nome": "Cecília Meireles",
+  "nacionalidade": "Brasileira"
+}
+
+###
+PUT {{base}}/autores/4
+Content-Type: application/json
+
+{
+  "nome": "Cecília Meireles",
+  "nacionalidade": "Brasil"
+}
+
+###
+DELETE {{base}}/autores/4
+
+### ---------- LIVROS ----------
+GET {{base}}/livros
+
+###
+GET {{base}}/livros?titulo=dom
+
+###
+GET {{base}}/livros?autorId=1
+
+###
+GET {{base}}/livros/1
+
+###
+POST {{base}}/livros
+Content-Type: application/json
+
+{
+  "titulo": "A Revolução dos Bichos",
+  "isbn": "9788535909555",
+  "anoPublicacao": 1945,
+  "quantidadeDisponivel": 2,
+  "autorId": 3
+}
+
+###
+PUT {{base}}/livros/5
+Content-Type: application/json
+
+{
+  "titulo": "A Revolução dos Bichos",
+  "isbn": "9788535909555",
+  "anoPublicacao": 1945,
+  "quantidadeDisponivel": 7,
+  "autorId": 3
+}
+
+###
+DELETE {{base}}/livros/5
